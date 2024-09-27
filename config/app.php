@@ -105,6 +105,16 @@ return [
         ),
     ],
 
+    // 'providers' => [
+        
+    //     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    // ],
+
+    // 'aliases' => [
+
+    //     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+    // ],
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

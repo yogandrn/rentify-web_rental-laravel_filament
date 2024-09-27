@@ -6,6 +6,8 @@ use App\Filament\Resources\BrandResource\Pages;
 use App\Filament\Resources\BrandResource\RelationManagers;
 use App\Models\Brand;
 use Filament\Forms;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -17,7 +19,7 @@ class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-light-bulb';
 
     public static function form(Form $form): Form
     {
@@ -31,6 +33,14 @@ class BrandResource extends Resource
                 ->image()
                 ->directory('assets/logo')
                 ->maxSize(640),
+
+                Repeater::make('brand_categories')
+                ->relationship()
+                ->schema([
+                    Select::make('category_id')
+                            ->relationship('category', 'name')
+                            ->required(),
+                ]),
             ]);
     }
 
@@ -45,6 +55,7 @@ class BrandResource extends Resource
     
                 
                 Tables\Columns\ImageColumn::make('logo'),
+
             ])
             ->filters([
                 //

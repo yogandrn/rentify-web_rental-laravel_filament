@@ -24,10 +24,10 @@ return new class extends Migration
             $table->unsignedBigInteger('duration')->default(0);
             $table->enum('status', ['ON_CART', 'PENDING', 'CANCELED', 'SUCCESS'])->default('PENDING');
             $table->enum('delivery_type', ['PICKUP', 'HOME_DELIVERY'])->default('PICKUP');
-            $table->unsignedBigInteger('subtotal');
-            $table->unsignedBigInteger('tax');
-            $table->unsignedBigInteger('fee');
-            $table->unsignedBigInteger('total_amount');
+            $table->unsignedBigInteger('subtotal')->default(0);
+            $table->unsignedBigInteger('tax')->default(0);
+            $table->unsignedBigInteger('fee')->default(0);
+            $table->unsignedBigInteger('total_amount')->default(0);
             $table->foreignId('product_id')->constrained('products')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('store_id')->constrained('stores')->cascadeOnUpdate()->cascadeOnDelete();
             $table->softDeletes();

@@ -29,7 +29,9 @@ class Transaction extends Model
         'tax' => MoneyCast::class,
     ];
 
-    public function generateUniqueCode() : string 
+    protected $with = ['product:id,name,slug,price,thumbnail'];
+
+    public static function generateUniqueCode() : string 
     {
         $date = Carbon::now()->format('ymd');
         do {
@@ -44,7 +46,7 @@ class Transaction extends Model
     }
 
     public function product() : HasOne {
-        return $this->hasOne(Product::class, 'product_id', 'id');
+        return $this->hasOne(Product::class, 'id', 'product_id');
     }
 
 
