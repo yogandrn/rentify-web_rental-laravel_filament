@@ -20,7 +20,7 @@ Kunjungi laman berikut untuk melihat proyek ini.
 `https://rentify.andrianation.my.id`
 
 Untuk login web dashboard, kunjungi link berikut:
-`https://rentify.andrianation.my.id`
+`https://rentify.andrianation.my.id/admin`
 
 Login access:
 Email : `super.admin@email.com`
